@@ -1,5 +1,6 @@
 package com.ms.assignment;
 
+import android.content.res.Configuration;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -105,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
                     pushDataToAdapter(keyword);
                 } catch (Exception e) {
                     setRereshState(false);
+                    Toast.makeText(MainActivity.this, "Error occured, Please try with other keyword", Toast.LENGTH_SHORT).show();
                     e.printStackTrace();
                 }
             }
@@ -171,4 +173,8 @@ public class MainActivity extends AppCompatActivity {
         return list;
     }
 
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+    }
 }
